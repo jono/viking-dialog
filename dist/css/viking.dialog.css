@@ -1,0 +1,40 @@
+.viking-modal-overlay {
+    position: fixed;
+    z-index:999;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    opacity:0.5;
+    background: black;
+    -webkit-transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+}
+
+.viking-modal-wrapper {
+    width:100%;
+}
+
+.viking-modal {
+    padding: 20px;
+    background:white;
+    width:40%;
+    box-shadow: 0 0 30px rgba(0,0,0,.2);
+    margin:auto;
+    margin-bottom:20px;
+    z-index:1000;
+    position:relative;
+}
+
+.viking-modal .close-button {
+    position:absolute;
+    top:5px;
+    right:5px;
+    color:rgba(black, 0.3);
+    font-size:12pt;
+    padding:2pt;
+    border-radius:0 0 0 3px;
+    z-index:5;
+    cursor: pointer;
+}
