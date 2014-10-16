@@ -1,7 +1,7 @@
 # Viking.Dialog extension
 
 ## Usage
-Follow [viking installation](https://[github.com/malomalo/viking) instructions
+Follow [viking installation](https://github.com/malomalo/viking) instructions
 
 Include these files in your HTML or precompile process:
 - `dist/css/viking.dialog.css`
