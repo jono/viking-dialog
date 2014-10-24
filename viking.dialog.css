@@ -31,10 +31,6 @@
     position:absolute;
     top:5px;
     right:5px;
-    color:rgba(black, 0.3);
-    font-size:12pt;
-    padding:2pt;
-    border-radius:0 0 0 3px;
     z-index:5;
     cursor: pointer;
 }
