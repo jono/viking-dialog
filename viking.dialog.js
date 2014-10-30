@@ -1,10 +1,4 @@
-Viking = Viking || {};
-
 Viking.Dialog = Viking.View.extend({
-
-    constructor: function() {
-        Backbone.View.apply(this, arguments);
-    },
 
     initialize: function(options) {
         if (!options) {
@@ -68,29 +62,29 @@ Viking.Dialog = Viking.View.extend({
         }, options);
 
         if (!this.$overlay) {
-            this.$overlay = $("<div class='viking-modal-overlay'></div>");
+            this.$overlay = $("<div class='viking-dialog-overlay'></div>");
             if (this.clickOff) {
                 this.$overlay.click(this.close);
             }
         }
 
         if (!this.$wrapper) {
-            this.$wrapper = $("<div class='viking-modal-wrapper'></div>");
+            this.$wrapper = $("<div class='viking-dialog-wrapper'></div>");
             this.$wrapper.append(this.$el);
             if (this.clickOff) {
                 this.$wrapper.click(this.close);
             }
         }
 
-        this.$el.addClass('viking-modal');
+        this.$el.addClass('viking-dialog');
         this.$overlay.css({
-            zIndex: $('.viking-modal-overlay').length + options.zIndex,
+            zIndex: $('.viking-dialog-overlay').length + options.zIndex,
             opacity: options.overlay.opacity
         });
         this.$wrapper.css({
-            zIndex: $('.viking-modal-wrapper').length + options.zIndex + 1,
+            zIndex: $('.viking-dialog-wrapper').length + options.zIndex + 1,
             position : options.position,
-            top : options.top + $('.viking-modal-wrapper').length * 87
+            top : options.top + $('.viking-dialog-wrapper').length * 87
         });
 
         $('body').append(this.$overlay)

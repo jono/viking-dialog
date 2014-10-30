@@ -1,4 +1,4 @@
-.viking-modal-overlay {
+.viking-dialog-overlay {
     position: fixed;
     z-index:999;
     top: 0px;
@@ -12,11 +12,11 @@
     transition: opacity 0.3s ease;
 }
 
-.viking-modal-wrapper {
+.viking-dialog-wrapper {
     width:100%;
 }
 
-.viking-modal {
+.viking-dialog {
     padding: 20px;
     background:white;
     width:40%;
@@ -27,7 +27,7 @@
     position:relative;
 }
 
-.viking-modal .close-button {
+.viking-dialog .close-button {
     position:absolute;
     top:5px;
     right:5px;
