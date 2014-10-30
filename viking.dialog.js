@@ -1,30 +1,21 @@
 Viking.Dialog = Viking.View.extend({
 
-    _setOptionIfDefined : function(property, fallback) {
-        if (this.options.hasOwnProperty(property)) {
-            this[property] = this.options[property];
-        } else if (!(property in this) && fallback) {
-            this[property] = fallback;
-        }
-    },
-
     initialize: function(options) {
+        var defaults = {
+            clickOff : true
+        };
+
         if (!options) {
             options = {};
         }
 
-        this.options = options;
-
-        this._setOptionIfDefined('view');
-        this._setOptionIfDefined('template');
-        this._setOptionIfDefined('clickOff', true);
-        this._setOptionIfDefined('closeButton', null);
+        _.extend(this, defaults, options);
 
         if (options.className) {
             this.$el.addClass(options.className);
         }
 
-        _.bindAll(this, 'resize', 'close');
+        _.bindAll(this, 'close');
         $(window).on('resize', this.resize);
 
         if (this.closeButton) {
@@ -48,8 +39,6 @@ Viking.Dialog = Viking.View.extend({
 
         return this;
     },
-
-    resize: function () {},
 
     remove: function () {
         if (this.view) {
