@@ -37,6 +37,7 @@
             <h1>Viking.Dialog Examples</h1>
             <button class="btn btn-default" id="basic-dialog">Basic Dialog</button>
             <button class="btn btn-default" id="basic-dialog2">Basic Dialog (clickOff set to false)</button>
+            <button class="btn btn-default" id="extend-dialog">Extended Dialog</button>
         </div>
 
         <script src="js/jquery.js"></script>
@@ -71,6 +72,19 @@
                     closeButton : $closeBtn
                 }).show();
             });
+
+            var CustomDialog = Viking.Dialog.extend({
+                template : 'basicDialog',
+                clickOff : false,
+                initialize : function() {
+                    this.constructor.__super__.initialize.apply(this, arguments);
+                }
+            });
+
+            $('#extend-dialog').on('click', function() {
+                new CustomDialog().show();
+            });
+
         </script>
     </body>
 </html>

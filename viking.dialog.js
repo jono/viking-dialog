@@ -1,14 +1,24 @@
 Viking.Dialog = Viking.View.extend({
 
+    _setOptionIfDefined : function(property, fallback) {
+        if (this.options.hasOwnProperty(property)) {
+            this[property] = this.options[property];
+        } else if (!(property in this) && fallback) {
+            this[property] = fallback;
+        }
+    },
+
     initialize: function(options) {
         if (!options) {
             options = {};
         }
 
-        this.view           = options.view;
-        this.template       = options.template;
-        this.clickOff       = options.hasOwnProperty('clickOff') ? options.clickOff : true;
-        this.$closeButton   = options.closeButton ? $(options.closeButton) : null;
+        this.options = options;
+
+        this._setOptionIfDefined('view');
+        this._setOptionIfDefined('template');
+        this._setOptionIfDefined('clickOff', true);
+        this._setOptionIfDefined('closeButton', null);
 
         if (options.className) {
             this.$el.addClass(options.className);
@@ -17,8 +27,8 @@ Viking.Dialog = Viking.View.extend({
         _.bindAll(this, 'resize', 'close');
         $(window).on('resize', this.resize);
 
-        if (this.$closeButton) {
-            this.$closeButton.addClass('close-button');
+        if (this.closeButton) {
+            this.closeButton.addClass('close-button');
         }
 
         this.render();
@@ -31,9 +41,9 @@ Viking.Dialog = Viking.View.extend({
             this.$el.html(this.renderTemplate({model: this.model}));
         }
 
-        if (this.$closeButton) {
-          this.$el.prepend(this.$closeButton);
-          this.$closeButton.on('click', this.close);
+        if (this.closeButton) {
+          this.$el.prepend(this.closeButton);
+          this.closeButton.on('click', this.close);
         }
 
         return this;
