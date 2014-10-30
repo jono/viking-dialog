@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Viking.Dialog Example</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="../viking.dialog.css">
+        <style>
+            body {
+                background: #27ae60;
+            }
+            .content{
+                text-align: center;
+                padding: 20px;
+                background: #f4f4f4;
+                border-radius: 8px;
+                box-shadow: 0 6px 0 #CCC;
+                width: 560px;
+                height: 160px;
+                margin: 100px auto;
+            }
+            h1 {
+                margin: 0 0 40px;
+            }
+            .close {
+                border-radius: 8px;
+                padding: 5px 10px;
+            }
+        </style>
+    </head>
+    <body>
+
+
+        <div class="content">
+            <h1>Viking.Dialog Examples</h1>
+            <button class="btn btn-default" id="basic-dialog">Basic Dialog</button>
+            <button class="btn btn-default" id="basic-dialog2">Basic Dialog (clickOff set to false)</button>
+        </div>
+
+        <script src="js/jquery.js"></script>
+        <script src="js/underscore.js"></script>
+        <script src="js/backbone.js"></script>
+        <script src="js/viking.js"></script>
+        <script src="../viking.dialog.js"></script>
+        <script>
+            var JST = {
+                'basicDialog' : _.template('<h1>A Basic Dialog</h1>'),
+                'basicDialog2' : _.template(
+                    '<h1>A Basic Dialog</h1>' +
+                    '<p><pre>{clickOff: false, ' + 
+                    'closeButton: $("&lt;span&gt;x&lt;/span&gt")}</pre></p>'
+                )
+            };
+
+            // Viking View setup
+            Viking.View.templates = JST;
+
+            $('#basic-dialog').on('click', function() {
+                new Viking.Dialog({
+                    template : 'basicDialog'
+                }).show();
+            });
+
+            $('#basic-dialog2').on('click', function() {
+                var $closeBtn = $('<span class="close">x</span>');
+                new Viking.Dialog({
+                    template : 'basicDialog2',
+                    clickOff : false,
+                    closeButton : $closeBtn
+                }).show();
+            });
+        </script>
+    </body>
+</html>

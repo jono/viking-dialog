@@ -11,9 +11,10 @@ Viking.Dialog = Viking.View.extend({
             options = {};
         }
 
-        this.view         = options.view;
-        this.template     = options.template;
-        this.$closeButton = options.closeButton ? $(options.closeButton) : null;
+        this.view           = options.view;
+        this.template       = options.template;
+        this.clickOff       = options.hasOwnProperty('clickOff') ? options.clickOff : true;
+        this.$closeButton   = options.closeButton ? $(options.closeButton) : null;
 
         if (options.className) {
             this.$el.addClass(options.className);
@@ -68,12 +69,17 @@ Viking.Dialog = Viking.View.extend({
 
         if (!this.$overlay) {
             this.$overlay = $("<div class='viking-modal-overlay'></div>");
-            this.$overlay.click(this.close);
+            if (this.clickOff) {
+                this.$overlay.click(this.close);
+            }
         }
+
         if (!this.$wrapper) {
             this.$wrapper = $("<div class='viking-modal-wrapper'></div>");
             this.$wrapper.append(this.$el);
-            this.$wrapper.click(this.close);
+            if (this.clickOff) {
+                this.$wrapper.click(this.close);
+            }
         }
 
         this.$el.addClass('viking-modal');
