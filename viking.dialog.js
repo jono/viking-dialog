@@ -16,7 +16,6 @@ Viking.Dialog = Viking.View.extend({
         }
 
         _.bindAll(this, 'close');
-        $(window).on('resize', this.resize);
 
         if (this.closeButton) {
             this.closeButton.addClass('close-button');
@@ -47,7 +46,6 @@ Viking.Dialog = Viking.View.extend({
 
         this.$overlay.remove();
         this.$wrapper.remove();
-        $(window).off('resize', this.resize);
 
         Backbone.View.prototype.remove.apply(this, arguments);
     },
