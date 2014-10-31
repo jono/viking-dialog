@@ -87,7 +87,7 @@ Viking.Dialog = Viking.View.extend({
         $('body').append(this.$overlay)
                  .append(this.$wrapper);
 
-        this.trigger('open');
+        this.trigger('show');
         this.$("select, textarea, input:not([type=checkbox]):not([type=hidden])").first().focus();
 
         return this;
