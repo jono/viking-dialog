@@ -76,16 +76,23 @@ Viking.Dialog = Viking.View.extend({
         this.$el.addClass('viking-dialog');
         this.$overlay.css({
             zIndex: $('.viking-dialog-overlay').length + options.zIndex,
-            opacity: options.overlay.opacity
+            opacity: 0
         });
         this.$wrapper.css({
             zIndex: $('.viking-dialog-wrapper').length + options.zIndex + 1,
             position : options.position,
-            top : options.top + $('.viking-dialog-wrapper').length * 87
+            top : options.top + $('.viking-dialog-wrapper').length * 87,
+            display: 'none'
         });
 
         $('body').append(this.$overlay)
                  .append(this.$wrapper);
+        
+        // Animations
+        var duration = 300;
+        this.$overlay.animate({ opacity: options.overlay.opacity }, duration);
+        this.$wrapper.addClass('viking-dialog-show');
+        this.$wrapper.fadeIn(duration);
 
         this.trigger('show');
         this.$("select, textarea, input:not([type=checkbox]):not([type=hidden])").first().focus();
@@ -104,8 +111,16 @@ Viking.Dialog = Viking.View.extend({
                 return false;
             }
         }
-        this.trigger('close');
-        this.remove();
+        
+        // Animations
+        var duration = 200;
+        this.$overlay.fadeOut(duration);
+        this.$wrapper.addClass('viking-dialog-hide');
+        this.$wrapper.fadeOut(duration, _.bind(function(){
+            this.trigger('close');
+            this.remove();
+        }, this));
+        
     }
 
 });

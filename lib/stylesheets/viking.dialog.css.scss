@@ -1,3 +1,5 @@
+@import "bourbon";
+
 .viking-dialog-overlay {
     position: fixed;
     z-index:999;
@@ -7,9 +9,6 @@
     width:100%;
     opacity:0.5;
     background: black;
-    -webkit-transition: opacity 0.3s ease;
-    -moz-transition: opacity 0.3s ease;
-    transition: opacity 0.3s ease;
 }
 
 .viking-dialog-wrapper {
@@ -20,11 +19,18 @@
     padding: 20px;
     background:white;
     width:40%;
-    box-shadow: 0 0 30px rgba(0,0,0,.2);
+    box-shadow: 0 0 30px rgba(black,.2);
     margin:auto;
     margin-bottom:20px;
     z-index:1000;
     position:relative;
+    border-radius:2px;
+    &-show {
+        @include animation(showVikingDialog 0.3s);
+    }
+    &-hide {
+        @include animation(hideVikingDialog 0.2s);
+    }
 }
 
 .viking-dialog .close-button {
@@ -33,4 +39,20 @@
     right:5px;
     z-index:5;
     cursor: pointer;
+}
+
+
+
+//----------------------------------------------------------------
+//             Animations
+//----------------------------------------------------------------
+@include keyframes (showVikingDialog) {
+    0% {    @include transform(scale(0.7)); }
+    45% {   @include transform(scale(1.05)); }
+    80% {   @include transform(scale(0.95)); }
+    100% {  @include transform(scale(1)); }
+}
+@include keyframes (hideVikingDialog) {
+    0% {    @include transform(scale(1)); }
+    100% {  @include transform(scale(0.7)); }
 }
