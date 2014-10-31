@@ -28,7 +28,7 @@ environment.unregister_postprocessor 'application/javascript', Sprockets::Safety
 
 desc "Compile mls.js"
 task :compile do
-  File.open('./viking.alert.css', "w") do |file|
+  File.open('./viking.dialog.css', "w") do |file|
     file << environment['viking.dialog.css.scss'].to_s
   end
 end
