@@ -1,0 +1,32 @@
+.viking-dialog-overlay {
+  position: fixed;
+  z-index: 999;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+  background: black;
+  -webkit-transition: opacity 0.3s ease;
+  -moz-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease; }
+
+.viking-dialog-wrapper {
+  width: 100%; }
+
+.viking-dialog {
+  padding: 20px;
+  background: white;
+  width: 40%;
+  box-shadow: 0 0 30px #cccccc;
+  margin: auto;
+  margin-bottom: 20px;
+  z-index: 1000;
+  position: relative; }
+
+.viking-dialog .close-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 5;
+  cursor: pointer; }
