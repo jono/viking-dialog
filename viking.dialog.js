@@ -89,7 +89,7 @@ Viking.Dialog = Viking.View.extend({
                  .append(this.$wrapper);
         
         // Animations
-        var duration = 300;
+        var duration = 100;
         this.$overlay.animate({ opacity: options.overlay.opacity }, duration);
         this.$wrapper.addClass('viking-dialog-show');
         this.$wrapper.fadeIn(duration);
@@ -113,7 +113,7 @@ Viking.Dialog = Viking.View.extend({
         }
         
         // Animations
-        var duration = 200;
+        var duration = 100;
         this.$overlay.fadeOut(duration);
         this.$wrapper.addClass('viking-dialog-hide');
         this.$wrapper.fadeOut(duration, _.bind(function(){

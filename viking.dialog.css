@@ -22,13 +22,13 @@
   position: relative;
   border-radius: 2px; }
   .viking-dialog-show {
-    -webkit-animation: showVikingDialog 0.3s;
-    -moz-animation: showVikingDialog 0.3s;
-    animation: showVikingDialog 0.3s; }
+    -webkit-animation: showVikingDialog 0.1s;
+    -moz-animation: showVikingDialog 0.1s;
+    animation: showVikingDialog 0.1s; }
   .viking-dialog-hide {
-    -webkit-animation: hideVikingDialog 0.2s;
-    -moz-animation: hideVikingDialog 0.2s;
-    animation: hideVikingDialog 0.2s; }
+    -webkit-animation: hideVikingDialog 0.1s;
+    -moz-animation: hideVikingDialog 0.1s;
+    animation: hideVikingDialog 0.1s; }
 
 .viking-dialog .close-button {
   position: absolute;
@@ -40,19 +40,11 @@
 @-webkit-keyframes showVikingDialog {
   0% {
     -webkit-transform: scale(0.7); }
-  45% {
-    -webkit-transform: scale(1.05); }
-  80% {
-    -webkit-transform: scale(0.95); }
   100% {
     -webkit-transform: scale(1); } }
 @-moz-keyframes showVikingDialog {
   0% {
     -moz-transform: scale(0.7); }
-  45% {
-    -moz-transform: scale(1.05); }
-  80% {
-    -moz-transform: scale(0.95); }
   100% {
     -moz-transform: scale(1); } }
 @keyframes showVikingDialog {
@@ -62,18 +54,6 @@
     -ms-transform: scale(0.7);
     -o-transform: scale(0.7);
     transform: scale(0.7); }
-  45% {
-    -webkit-transform: scale(1.05);
-    -moz-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    -o-transform: scale(1.05);
-    transform: scale(1.05); }
-  80% {
-    -webkit-transform: scale(0.95);
-    -moz-transform: scale(0.95);
-    -ms-transform: scale(0.95);
-    -o-transform: scale(0.95);
-    transform: scale(0.95); }
   100% {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);

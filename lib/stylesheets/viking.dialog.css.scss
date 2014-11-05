@@ -26,10 +26,10 @@
     position:relative;
     border-radius:2px;
     &-show {
-        @include animation(showVikingDialog 0.3s);
+        @include animation(showVikingDialog 0.1s);
     }
     &-hide {
-        @include animation(hideVikingDialog 0.2s);
+        @include animation(hideVikingDialog 0.1s);
     }
 }
 
@@ -48,8 +48,6 @@
 //----------------------------------------------------------------
 @include keyframes (showVikingDialog) {
     0% {    @include transform(scale(0.7)); }
-    45% {   @include transform(scale(1.05)); }
-    80% {   @include transform(scale(0.95)); }
     100% {  @include transform(scale(1)); }
 }
 @include keyframes (hideVikingDialog) {
